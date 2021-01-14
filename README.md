@@ -18,3 +18,10 @@ npx sb init
 ```
 yarn storybook
 ```
+
+<br>
+
+## 4. Material UI 설치하기
+```
+yarn add @material-ui/core
+```
