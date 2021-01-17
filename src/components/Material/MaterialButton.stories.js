@@ -5,15 +5,23 @@ import Button from "@material-ui/core/Button";
 export default {
   title: "Material/Button",
   component: Button,
+  argTypes: {
+    onClick: { action: "clicked" },
+  },
 };
 
-export const Success = () => (
-  <Button variant="contained" color="primary">
-    Success
-  </Button>
-);
-export const Danger = () => (
-  <Button variant="contained" color="secondary">
-    Danger
-  </Button>
-);
+const Templates = (args) => <Button {...args} />;
+
+export const Success = Templates.bind({});
+Success.args = {
+  variant: "contained",
+  color: "primary",
+  children: "Success",
+};
+
+export const Danger = Templates.bind({});
+Danger.args = {
+  variant: "contained",
+  color: "secondary",
+  children: "Danger",
+};
