@@ -25,3 +25,12 @@ Danger.args = {
   color: "secondary",
   children: "Danger",
 };
+
+export const Log = Templates.bind({});
+Log.args = {
+  variant: "contained",
+  children: "Log",
+  onClick: () => {
+    console.log("Button Clicked");
+  },
+};
