@@ -26,7 +26,10 @@ export const Danger = () => (
 );
 
 export const Log = () => (
-  <Button variant="contained" onClick={() => console.log("clicked")}>
+  <Button
+    variant="contained"
+    onClick={() => console.log("clicked", process.env.STORYBOOK_THEME)}
+  >
     Log
   </Button>
 );
