@@ -1,36 +1,38 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import { action, actions } from "@storybook/addon-actions";
+import { text, boolean } from "@storybook/addon-knobs";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: "Material/Button",
   component: Button,
-  argTypes: {
-    onClick: { action: "clicked" },
-  },
 };
 
-const Templates = (args) => <Button {...args} />;
+export const Success = () => (
+  <Button variant="contained" color="primary" onClick={action("Click Handler")}>
+    Success
+  </Button>
+);
 
-export const Success = Templates.bind({});
-Success.args = {
-  variant: "contained",
-  color: "primary",
-  children: "Success",
-};
+export const Danger = () => (
+  <Button
+    variant="contained"
+    color="secondary"
+    {...actions("onClick", "onMouseOver")}
+  >
+    Danger
+  </Button>
+);
 
-export const Danger = Templates.bind({});
-Danger.args = {
-  variant: "contained",
-  color: "secondary",
-  children: "Danger",
-};
+export const Log = () => (
+  <Button variant="contained" onClick={() => console.log("clicked")}>
+    Log
+  </Button>
+);
 
-export const Log = Templates.bind({});
-Log.args = {
-  variant: "contained",
-  children: "Log",
-  onClick: () => {
-    console.log("Button Clicked");
-  },
-};
+export const knobs = () => (
+  <Button disabled={boolean("Disabled", false)} variant="contained">
+    {text("Label", "Button Label")}
+  </Button>
+);
